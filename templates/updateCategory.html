@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div id="updateCategory">
+        <h2 class=" text-white text-center"> UPDATE CATEGORY </h2>
+        <a class=" btn btn-primary" href="{{url_for('home')}}"> Go Back </a> <br>
+        <form method="POST" action="{{url_for('updateCategory',id = selectedCategory.id)}}">
+            <div class="form-group">
+                <label for="exampleInputEmail1"> Update</label>
+                <input name="name" class="form-control" aria-describedby="emailHelp"
+                    value="{{selectedCategory.name}}">
+            </div>
+            <button type="submit" class="btn btn-primary"> Update </button>
+        </form>
+</div>
+
+{% endblock %}

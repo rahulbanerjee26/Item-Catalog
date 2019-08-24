@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div id="createCategory">
+        <h2 class=" text-white text-center"> CREATE CATEGORY </h2>
+        <form method="POST" action="{{url_for('createCategory')}}">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Category Name</label>
+                <input name="name" class="form-control" aria-describedby="emailHelp"
+                    placeholder="Enter category name">
+            </div>
+            <button type="submit" class="btn btn-primary"> Create </button>
+        </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,22 @@
+footer{
+    text-align: center;
+}
+
+body{
+    background: url('./header.jpg') center center fixed no-repeat;
+    background-size: cover;
+    height: 100%;
+}
+
+#home,#viewCategories,#createCategory,#deleteCategory,#createItem,#login{
+    padding: 5%;
+}
+
+.card{
+    margin: 4%;
+}
+
+label{
+    font-size: 2vw;
+    color: white;
+}

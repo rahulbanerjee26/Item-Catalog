@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div id="deleteCategory">
+        <h2 class=" text-white text-center"> DELETE CATEGORY </h2>
+        <h2 class="text-white"> Are you Sure you want to delete the category '{{selectedCategory.name}}' and the following items</h2>
+        <ul>
+            {%for item in items%}
+                <li>{{item.name}}</li>
+            {%endfor%}
+        </ul>
+        <a class=" btn btn-primary" href="{{url_for('home')}}"> Go Back </a> <br>
+        <form method="POST" action="{{url_for('deleteCategory',id = selectedCategory.id)}}">
+            <button type="submit" class="btn btn-danger"> Delete </button>
+        </form>
+</div>
+
+{% endblock %}

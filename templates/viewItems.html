@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div id='home'>
+        <h1 class="text-white text-center"> {{category.name}} </h1>
+        <div class=" container-fluid">
+                <div class="row">
+                        <div class="col-4 text-center">
+                                <a class="btn btn-dark" href="{{url_for('createCategory')}}"> Create Category</a>
+                        </div>
+                        <div class="col-4 text-center">
+                                <a class="btn btn-dark" href="{{url_for('viewCategories')}}"> View Categories</a>
+                        </div>
+                        <div class="col-4 text-center">
+                                <a class="btn btn-dark" href="{{url_for('createItem')}}"> Create Item </a>
+                        </div>
+                </div>
+        </div>
+
+        {% if sizeItems == 0 %}
+        <br>
+        <br>
+        <h2 class=" text-center text-white"> NO ITEMS ADDED </h2>
+        {%endif%}
+
+        <!-- Item Cards -->
+        {% if sizeItems!=0 %}
+        <div class="row">
+                {%for item in items%}
+                <a href="{{url_for('viewItem',id = item.id)}}">
+                <div class="card col-3" style="width: 18rem;">
+                        <div class="card-body">
+                                <h5 class="card-title">{{item.name}}</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">{{item.category.name}}</h6>
+                                <h6 class="card-subtitle mb-2 text-muted">{{item.user.name}}</h6>
+                                <h6 class="card-subtitle mb-2 text-muted">{{item.user.email}}</h6>
+                                <a href="{{url_for('updateItem',id =item.id)}}" class="card-link">Edit</a>
+                                <a href="{{url_for('deleteItem',id = item.id)}}" class="card-link">Delete</a>
+                        </div>
+                </div>
+                </a>
+                {%endfor%}
+                {%endif%}
+
+                
+        </div>
+        <!-- Item Cards catalog-->
+</div>
+
+{% endblock %}

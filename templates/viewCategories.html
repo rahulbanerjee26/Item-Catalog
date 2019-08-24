@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div id='viewCategories'>
+    <h1 class="text-white text-center"> CATEGORIES </h1>
+<ul style="list-style: none;">
+    {%if sizeCategories !=0 %}    
+        {% for category in categories %}
+        <li class="text-center" style="border: 3px solid black; border-radius: 50px; margin-bottom: 30px;">
+            <h2 class="text-white"> {{category.name}} </h2>
+            <h4 class="text-white"> {{category.user.name}} </h4>
+            <h4 class="text-white"> {{category.user.email}} </h4>
+            <a class="text-white" href="{{url_for('updateCategory',id = category.id)}}"> Edit </a> <br>
+            <a class="text-white" href="{{url_for('deleteCategory',id = category.id)}}"> Delete </a> <br>
+        </li>
+        {%endfor%}
+    {%endif%}
+
+    {%if sizeCategories == 0%}
+    <li>
+        <h2 class="text-white text-center">No Categories</h2>
+    </li>
+    {%endif%}
+
+</ul>
+</div>
+
+{% endblock %}
